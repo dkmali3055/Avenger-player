@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Video-play</title>
+    <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+   <style>
+      *{
+         margin: 0;
+         padding: 0;
+      }
+      body{
+         background-image: url(images/bg.jpg);
+         position: absolute;
+         top: 30%;
+         left: 30%;
+      }
+      .style{
+         border-radius: 10px;
+      }
+   </style>
+
+</head>
+
+<body >
+    <video id="my-video" class="video-js style" controls poster="images/avg.jpg" width="640" height="264"  >
+        <source id="player" src="video/Avengers-2.mp4 "type="video/mp4" />
+ </video>
+<script type='text/javascript'>
+   var count=0;
+   var player=document.getElementById('my-video');
+   var setsrc = document.getElementById('player');
+   player.addEventListener('ended',myHandler,false);
+
+   function myHandler(e)
+   {
+      if(!e) 
+      {
+         e = window.event; 
+      }
+      count++;
+      setsrc.setAttribute("src", 'video/Avengers-'+count+'.mp4');
+      player.load();
+      player.play();
+   }
+
+</script>
+
+    
+</body>
